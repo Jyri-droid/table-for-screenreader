@@ -10,24 +10,23 @@
         box-sizing: border-box;
     }
     body {
-        padding: 0;
+        padding: 2rem;
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         font-weight: 400;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    caption {
+        margin: 2rem 0 1rem 0;
     }
     thead tr {
         position: sticky;
         top: 0;
         left: 0;
         z-index: 999;
-    }
-    .rowHeader, [scope="colgroup"] span {
-        left: 0;
-        position: sticky;
-    }
-    table {
-        border-collapse: collapse;
-        width: 100%;
     }
     td,
     th {
@@ -36,23 +35,61 @@
         padding: 0.5rem;
         background-color: #ffffff;
     }
+    .rowHeader, [scope="colgroup"] span {
+        left: 0;
+        position: sticky;
+    }
+    [scope="colgroup"] {
+        background-color: rgb(230,230,230);
+    }
 
 </style>
 </head>
 <body>
+
     <table>
         <caption>Caption</caption>
         <thead>
             <tr>
-                <th>Table head 1</th>
-                <th>Table head 2</th>
+                <th scope="col">Table head 1</th>
+                <th scope="col">Table head 2</th>
+                <th scope="col">Table head 3</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th>Row head 1</th>
+                <th scope="row">Row head 1</th>
                 <td>Cell 1</td>
                 <td>Cell 2</td>
+            </tr>
+            <tr>
+                <th scope="row">Row head 2</th>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <caption>Caption</caption>
+        <thead>
+            <tr>
+                <th scope="col">Table head 1</th>
+                <th scope="col">Table head 2</th>
+                <th scope="col">Table head 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="colgroup" colspan="3">Mobile row head 1</th>
+            </tr>
+            <tr>
+                <th scope="row">Row head 1</th>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+            </tr>
+            <tr>
+                <th scope="colgroup" colspan="3">Mobile row head 2</th>
             </tr>
             <tr>
                 <th>Row head 2</th>
@@ -61,6 +98,7 @@
             </tr>
         </tbody>
     </table>
+
 </body>
 <script>
 // Place your JS here
